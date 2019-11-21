@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!--
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		-->
+    </head>
+    <body>
+			<input type='file' id="imgInpA" style="display:none" />
+			<input type='file' id="imgInpB" style="display:none" />
+			
+			<table cellspacing="10"  align="left" style="border-collapse: separate; border-spacing: 15px; width: 600px">
+				<tr>
+					<td colspan=6>
+						<!-- Logo and Company Info -->
+						<table cellspacing="10"  align="left" style="border-collapse: separate; border-spacing: 5px; width: 600px">
+							<tr>
+								<td width=90px height=80px rowspan=2><div style="height: 80px; border: solid; border-color: gray; border-width: 1px">Logo</div></td>
+								<td width=360px height=40px><div style="height: 30px; border: solid; border-color: gray; border-width: 1px">Company Name</div></td>
+								<td width=150px height=40px><!--T3--></td>
+							</tr>
+							<tr>
+								<!-- <td height=40px><div style="border: solid; border-color: gray; border-width: 1px">T4</div></td> -->
+								<td height=40px height=80px rowspan=2><div style="height: 80px; border: solid; border-color: gray; border-width: 1px">Description</div></td>
+								<td height=40px><!--T6--></td>
+							</tr>
+							<tr>
+								<td height=40px></td>
+								<!-- <td height=40px><div style="border: solid; border-color: gray; border-width: 1px">T8</div></td> -->
+								<td height=40px><!--T9--></td>
+							</tr>
+						</table>
+						<!-- Logo and Company Info End -->
+					</td>
+				</tr>
+				<tr><td colspan=6>Buy Shoes</td></tr>
+				<tr>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahA1" src="shose.png" alt="your image" height="100px" width="100px" /></div></td>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahA2" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahA3" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahA4" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahA5" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><img id="AddblahA" src="add.png" alt="your image" height="40px" width="40px" /></td>
+				</tr>
+				<tr><td colspan=6>Sell Shoes</td></tr>
+				<tr>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahB1" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahB2" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahB3" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahB4" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><div style="border: solid; border-color: gray; border-width: 1px"><img id="blahB5" src="blank.png" alt="your image" height="100px" width="100px" /></div></td>	
+					<td><img id="AddblahB" src="add.png" alt="your image" height="40px" width="40px" /></td>
+				</tr>
+			<table>
+			
+			<input type="hidden" id="currentIndexA" value="1" />
+			<input type="hidden" id="currentOppA" value="0" /> <!-- 0 is adding , 1 is removing -->
+			
+			<input type="hidden" id="currentIndexB" value="0" />
+			<input type="hidden" id="currentOppB" value="0" /> <!-- 0 is adding , 1 is removing -->
+    </body>
+	<script type="text/javascript">
+		///////////////////////////////////////////////////////// Panel A Operation ///////////////////////////////////////////////////////////////////////////
+	
+		$('#AddblahA').click(function() {
+			if ($("#currentOppA").val() == 0) {
+				//Here to add image one by one
+				$('#imgInpA').click();	
+			}
+			
+			if ($("#currentOppA").val() == 1) {
+				//Here to remove image one by one
+				if ($("#currentIndexA").val() == 5) {
+						$("#currentIndexA").val(4);
+						$("#blahA5").attr("src","blank.png");
+					}
+					else {
+						if ($("#currentIndexA").val() == 4)	{
+							$("#currentIndexA").val(3);
+							$("#blahA4").attr("src","blank.png");
+						}
+						else {
+							if ($("#currentIndexA").val() == 3)	{
+								$("#currentIndexA").val(2);
+								$("#blahA3").attr("src","blank.png");
+							}
+							else {
+								if ($("#currentIndexA").val() == 2)	{
+									$("#currentIndexA").val(1);
+										$("#blahA2").attr("src","blank.png");
+								}
+								else {
+									if ($("#currentIndexA").val() == 1)	{
+										$("#blahA1").attr("src","blank.png");
+									
+										$("#currentIndexA").val(0);
+										$("#currentOppA").val(0);
+										$("#AddblahA").attr("src","add.png");
+									}
+								}
+							}
+						}
+					}
+			}
+		})
+
+		//preview the image
+		function readURLA(input) {
+		  if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+			
+					//alert($("#currentIndexA").val());
+					if ($("#currentIndexA").val() == 0) {
+						$('#blahA1').attr('src', e.target.result);
+						$("#currentIndexA").val(1)
+					}
+					else {
+						if ($("#currentIndexA").val() == 1)	{
+							$('#blahA2').attr('src', e.target.result);
+							$("#currentIndexA").val(2)
+						}
+						else {
+							if ($("#currentIndexA").val() == 2)	{
+								$('#blahA3').attr('src', e.target.result);
+								$("#currentIndexA").val(3)
+							}
+							else {
+								if ($("#currentIndexA").val() == 3)	{
+									$('#blahA4').attr('src', e.target.result);
+									$("#currentIndexA").val(4)
+								}
+								else {
+									if ($("#currentIndexA").val() == 4)	{
+										$('#blahA5').attr('src', e.target.result);
+										$("#currentIndexA").val(5);
+										$("#currentOppA").val(1);
+										$("#AddblahA").attr("src","remove.png");
+										
+									}
+								}
+							}
+						}
+					}
+				}
+
+				reader.readAsDataURL(input.files[0]);
+		  }
+		}
+
+		$("#imgInpA").change(function() {
+		  readURLA(this);
+		});
+		
+		///////////////////////////////////////////////////////// Panel B Operation ///////////////////////////////////////////////////////////////////////////
+		
+		
+		$('#AddblahB').click(function() {
+			if ($("#currentOppB").val() == 0) {
+				//Here to add image one by one
+				$('#imgInpB').click();	
+			}
+			
+			if ($("#currentOppB").val() == 1) {
+				//Here to remove image one by one
+				if ($("#currentIndexB").val() == 5) {
+						$("#currentIndexB").val(4);
+						$("#blahB5").attr("src","blank.png");
+					}
+					else {
+						if ($("#currentIndexB").val() == 4)	{
+							$("#currentIndexB").val(3);
+							$("#blahB4").attr("src","blank.png");
+						}
+						else {
+							if ($("#currentIndexB").val() == 3)	{
+								$("#currentIndexB").val(2);
+								$("#blahB3").attr("src","blank.png");
+							}
+							else {
+								if ($("#currentIndexB").val() == 2)	{
+									$("#currentIndexB").val(1);
+										$("#blahB2").attr("src","blank.png");
+								}
+								else {
+									if ($("#currentIndexB").val() == 1)	{
+										$("#blahB1").attr("src","blank.png");
+									
+										$("#currentIndexB").val(0);
+										$("#currentOppB").val(0);
+										$("#AddblahB").attr("src","add.png");
+									}
+								}
+							}
+						}
+					}
+			}
+		})
+
+		//preview the image
+		function readURLB(input) {
+		  if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+			
+					//alert($("#currentIndexA").val());
+					if ($("#currentIndexB").val() == 0) {
+						$('#blahB1').attr('src', e.target.result);
+						$("#currentIndexB").val(1)
+					}
+					else {
+						if ($("#currentIndexB").val() == 1)	{
+							$('#blahB2').attr('src', e.target.result);
+							$("#currentIndexB").val(2)
+						}
+						else {
+							if ($("#currentIndexB").val() == 2)	{
+								$('#blahB3').attr('src', e.target.result);
+								$("#currentIndexB").val(3)
+							}
+							else {
+								if ($("#currentIndexB").val() == 3)	{
+									$('#blahB4').attr('src', e.target.result);
+									$("#currentIndexB").val(4)
+								}
+								else {
+									if ($("#currentIndexB").val() == 4)	{
+										$('#blahB5').attr('src', e.target.result);
+										$("#currentIndexB").val(5);
+										$("#currentOppB").val(1);
+										$("#AddblahB").attr("src","remove.png");
+										
+									}
+								}
+							}
+						}
+					}
+				}
+
+				reader.readAsDataURL(input.files[0]);
+		  }
+		}
+
+		$("#imgInpB").change(function() {
+		  readURLB(this);
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>
